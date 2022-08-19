@@ -1,12 +1,9 @@
-import './App.css';
+import "./sass/_app.scss";
+import BookList from "./components/BookList";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-
-      </header>
-    </div>
+      <BookList />
   );
 }
 
