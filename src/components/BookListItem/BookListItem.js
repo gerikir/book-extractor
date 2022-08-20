@@ -7,7 +7,7 @@ const BookListItem = ({number, cover, author, biography, title, estimatedReading
             <td className="book-list-item-cell extra-narrow">
                 <div className="book-list-item__number">{number}.</div>
             </td>
-            <td className="book-list-item-cell width-10">
+            <td className="book-list-item-cell width-12">
                 {cover && (
                     <div className="book-list-item__cover-wrapper">
                         <a className="book-list-item__link-overlay" href={`https://extracts.panmacmillan.com/extract?isbn=${isbn}`} target="_blank"/>
@@ -25,14 +25,14 @@ const BookListItem = ({number, cover, author, biography, title, estimatedReading
                 <div className="book-list-item__biography" dangerouslySetInnerHTML={{__html: biography}}/>
             </td>
             <td className="book-list-item-cell width-20">
-                <a className="book-list-item__link-overlay" href={`https://extracts.panmacmillan.com/extract?isbn=${isbn}`} target="_blank">
+                <a href={`https://extracts.panmacmillan.com/extract?isbn=${isbn}`} target="_blank">
                 <h4 className="book-list-item__title">{title}</h4>
                 </a>
             </td>
             <td className="book-list-item-cell width-5">
                 <span className="book-list-item__reading-time">{estimatedReadingTimeMinutes} min</span>
             </td>
-            <td className="book-list-item-cell width-10">
+            <td className="book-list-item-cell width-12">
                 <span className="">{publicationDate}</span>
             </td>
         </tr>

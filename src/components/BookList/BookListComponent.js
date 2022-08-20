@@ -28,7 +28,6 @@ const BookListComponent = ({
       {!loading && (
         <div className="book-list">
           <div className="content-container">
-            <section className="book-list-content">
               {/*<div className="md:flex md:flex-1 md:justify-between">*/}
               {/*  <label className="flex items-center text-xl font-medium">*/}
               {/*    Name:*/}
@@ -88,7 +87,6 @@ const BookListComponent = ({
               {/*    {errorMessage}*/}
               {/*  </div>*/}
               {/*)}*/}
-            </section>
             <table className="book-list-items">
               {books?.length > 0 &&
                 books.map((book, index) => {
