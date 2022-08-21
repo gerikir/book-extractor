@@ -2,8 +2,7 @@
 @import "./responsive";
 @import "./fonts";
 
-$headerHeight: 80;
-$headerHeightSmall: 60;
+$headerHeight: 60;
 
 body {
   margin: 0;
@@ -39,7 +38,7 @@ body {
   padding-left: 24px;
   flex: 1;
   padding-right: 24px;
-  padding-top: $headerHeightSmall+px;
+  padding-top: $headerHeight+px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -49,21 +48,19 @@ body {
   animation-iteration-count: infinite;
   animation-direction: alternate;
 
-  @include desktop {
-    padding-top: $headerHeight+px;
-  }
-
-  .loading__text {
-    margin-top: 24px;
+  .loading-text {
+    font-style: italic;
+    font-weight: normal;
     font-size: 36px;
-    line-height: 36px;
     text-align: center;
   }
 }
 
 .not-found {
+  margin-top: 20px;
   font-size: 24px;
   line-height: 28px;
+  font-style: italic;
 }
 
 .content-container {
@@ -100,6 +97,21 @@ a {
   }
 }
 
+button {
+  margin: 0;
+  border: none;
+  background: none;
+  color: white;
+  font-weight: bold;
+  font-family: inherit;
+  cursor: pointer;
+  transition: 0.2s all ease-in-out;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
 
 //Sections_____________________________
 .header {
@@ -108,15 +120,11 @@ a {
   top: 0;
   left: 0;
   right: 0;
-  height: $headerHeightSmall+px;
+  height: $headerHeight+px;
   display: flex;
   align-items: center;
-  background-color: $primary-color;
-  box-shadow: 0 3px 15px rgba(57, 63, 72, 0.1);
-
-  @include desktop {
-    height: $headerHeight+px;
-  }
+  background-color: $secondary-color;
+  box-shadow: 0 3px 15px rgba(57, 63, 72, 0.2);
 
   .header__title {
     color: white;
@@ -128,12 +136,6 @@ a {
   }
 }
 
-//.main {
-//  background-color: $bg-color;
-//  display: flex;
-//  flex: 1;
-//}
-
 .footer {
   height: 40px;
   display: flex;
@@ -143,41 +145,97 @@ a {
   .footer-text {
     margin: 0 5px;
     font-size: 12px;
-    color: $secondary-color;
+    color: $tertiary-color;
   }
+}
+
+
+//Sort
+.sort-button {
+  margin-left: 5px;
+  display: flex;
+  flex-direction: column;
+  white-space: nowrap;
 }
 
 
 //BookList_____________________________
 .book-list {
-  padding-top: $headerHeightSmall + 24px;
+  padding-top: $headerHeight + 24px;
   padding-bottom: 24px;
   background-color: $bg-color;
+  flex: 1;
 
-  @include desktop {
-    padding-top: $headerHeight + 24px;
-  }
+  .book-list-headers {
+    margin-bottom: 24px;
+    padding: 0 10px;
+    background-color: $primary-color;
+    font-weight: bold;
+    color: white;
+    border-radius: 4px;
 
-  .book-list-content {
-    position: relative;
-    padding-bottom: 2rem;
-    margin-top: 2rem;
-    margin-bottom: 2.5rem;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom-width: 2px;
-
-    @media (min-width: 640px) {
+    @include desktop {
+      margin-bottom: 10px;
+      padding: 10px 24px;
+      height: 60px;
       display: flex;
+      text-align: center;
+      border-radius: 8px;
+    }
+
+    .table-cell {
+      justify-content: center;
+
+      @include mobile-tablet {
+        flex: 1;
+        justify-content: space-between;
+
+        &:not(:last-of-type) {
+          border-bottom: 1px solid $tertiary-color;
+        }
+      }
+    }
+
+    .visible-desktop {
+      display: none;
+
+      @include desktop {
+        display: flex;
+      }
     }
   }
 
   .book-list-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
 
-    @media (min-width: 640px) {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
+.table-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  min-width: 20px;
+
+  &.align-left {
+    justify-content: flex-start;
+  }
+
+  @include tablet {
+    &.height-full {
+      flex: 1;
+      align-items: flex-start;
+    }
+  }
+
+  @include desktop {
+    &.width-10 {
+      width: 10%;
+    }
+    &.width-30 {
+      width: 30%;
     }
   }
 }
@@ -204,105 +262,78 @@ a {
     height: 200px;
   }
 
-  .book-list-item-cell {
-    padding: 15px;
+  .book-list-item__number {
+    font-weight: bold;
+  }
 
-    @include tablet {
-      &.height-full {
-        flex: 1;
+  .book-list-item__cover-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    transition: 0.2s all ease-in-out;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    .book-list-item__link-overlay {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      cursor: pointer;
+    }
+
+    .book-list-item__cover {
+      height: 200px;
+
+      @include desktop {
+        width: 100%;
+        height: auto;
       }
+    }
+  }
+
+  .book-list-item__author {
+    font-weight: bold;
+
+    @include desktop {
+      letter-spacing: 1px;
+
+      &:first-line {
+        font-size: 14px;
+        letter-spacing: normal;
+        word-spacing: 9999999px;
+      }
+    }
+  }
+
+  .book-list-item__title {
+    font-weight: bold;
+    transition: 0.2s all ease-in-out;
+    text-align: left;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  .book-list-item__biography {
+    flex: 1;
+
+    p {
+      margin: 0;
     }
 
     @include desktop {
-      &.width-2 {
-        width: 2%;
-      }
-      &.width-12 {
-        width: 12%;
-      }
-      &.width-20 {
-        width: 20%;
-      }
-      &.width-40 {
-        width: 40%;
-      }
+      max-height: 170px;
+      overflow: scroll;
     }
+  }
 
-    .book-list-item__number {
-      font-weight: bold;
-      width: 20px;
-    }
-
-    .book-list-item__cover-wrapper {
-      position: relative;
-      display: flex;
-      align-items: center;
-      transition: 0.2s all ease-in-out;
-
-      &:hover {
-        opacity: 0.8;
-      }
-
-      .book-list-item__link-overlay {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        cursor: pointer;
-      }
-
-      .book-list-item__cover {
-        height: 200px;
-
-        @include desktop {
-          width: 100%;
-          height: auto;
-        }
-      }
-    }
-
-    .book-list-item__author {
-      font-weight: bold;
-      min-width: 130px;
-
-      @include desktop {
-        letter-spacing: 1px;
-
-        &:first-line {
-          font-size: 14px;
-          letter-spacing: normal;
-          word-spacing: 9999999px;
-        }
-      }
-    }
-
-    .book-list-item__title {
-      font-weight: bold;
-      transition: 0.2s all ease-in-out;
-      text-align: left;
-
-      &:hover {
-        opacity: 0.8;
-      }
-    }
-
-    .book-list-item__biography {
-      flex: 1;
-
-      p {
-        margin: 0;
-      }
-
-      @include desktop {
-        max-height: 170px;
-        overflow: scroll;
-      }
-    }
-
-    .book-list-item__reading-time {
-      white-space: nowrap;
-    }
+  .book-list-item__reading-time {
+    white-space: nowrap;
   }
 }
 

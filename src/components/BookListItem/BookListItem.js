@@ -1,13 +1,11 @@
 const BookListItem = ({number, cover, author, biography, title, estimatedReadingTimeMinutes, publicationDate, isbn}) => {
 
     return (
-        <tr
-            className="book-list-item"
-        >
-            <td className="book-list-item-cell extra-narrow">
+        <div className="book-list-item">
+            <div className="table-cell">
                 <div className="book-list-item__number">{number}.</div>
-            </td>
-            <td className="book-list-item-cell width-12">
+            </div>
+            <div className="table-cell width-10">
                 {cover && (
                     <div className="book-list-item__cover-wrapper">
                         <a className="book-list-item__link-overlay" href={`https://extracts.panmacmillan.com/extract?isbn=${isbn}`} target="_blank"/>
@@ -17,25 +15,25 @@ const BookListItem = ({number, cover, author, biography, title, estimatedReading
                 {!cover && (
                     <div className="text-center">No cover</div>
                 )}
-            </td>
-            <td className="book-list-item-cell width-20">
+            </div>
+            <div className="table-cell width-10">
                 <h3 className="book-list-item__author heading">{author}</h3>
-            </td>
-            <td className="book-list-item-cell width-40 height-full">
+            </div>
+            <div className="table-cell width-30 height-full">
                 <div className="book-list-item__biography" dangerouslySetInnerHTML={{__html: biography}}/>
-            </td>
-            <td className="book-list-item-cell width-20">
+            </div>
+            <div className="table-cell width-10 align-left">
                 <a href={`https://extracts.panmacmillan.com/extract?isbn=${isbn}`} target="_blank">
-                <h4 className="book-list-item__title">{title}</h4>
+                    <h4 className="book-list-item__title">{title}</h4>
                 </a>
-            </td>
-            <td className="book-list-item-cell width-5">
+            </div>
+            <div className="table-cell width-10">
                 <span className="book-list-item__reading-time">{estimatedReadingTimeMinutes} min</span>
-            </td>
-            <td className="book-list-item-cell width-12">
+            </div>
+            <div className="table-cell width-10">
                 <span className="">{publicationDate}</span>
-            </td>
-        </tr>
+            </div>
+        </div>
     );
 };
 
