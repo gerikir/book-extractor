@@ -1,13 +1,12 @@
 import {useEffect, useState} from "react";
-import {builder} from "../../utils/builder";
 import BookListComponent from "./BookListComponent";
 import moment from "moment";
 
 const BookListContainer = () => {
-        const [books, setBooks] = useState(null);
         const [loading, setLoading] = useState(null);
-        const [bookName, setBookName] = useState("");
         const [errorMessage, setErrorMessage] = useState(null);
+        const [booksDefault, setBooksDefault] = useState([]);
+        const [books, setBooks] = useState([]);
 
         useEffect(() => {
             let canFetch = true
@@ -16,12 +15,13 @@ const BookListContainer = () => {
                 .then((response) => response.json())
                 .then((data) => {
                     if (canFetch) {
+                        setBooksDefault(data.Extracts);
                         setBooks(data.Extracts);
                         setLoading(false);
                     }
                 })
                 .catch((error) => {
-                    console.log(error);
+                    setErrorMessage(error);
                     setLoading(false);
                 });
             return () => {
@@ -29,26 +29,32 @@ const BookListContainer = () => {
             }
         }, []);
 
-        const filter = () => {
-            const searchParams = builder()
-                .with("title", bookName)
-                .build();
+        const handleSortAsc = (col) => {
+            const sortedBooks = [...books].sort((a, b) => {
+                if (typeof a[col] === "number" && typeof b[col] === "number") {
+                    return a[col] > b[col] ? 1 : -1;
+                }
+                return a[col].toLowerCase() > b[col].toLowerCase() ? 1 : -1;
+            });
+            setBooks(sortedBooks);
+        }
 
-            // fetchBooks(searchParams).then((bookData) => {
-            //   setBooks(bookData);
-            // });
-        };
+        const handleSortDesc = (col) => {
+            const sortedBooks = [...books].sort((a, b) => {
+                if (typeof a[col] === "number" && typeof b[col] === "number") {
+                    return a[col] < b[col] ? 1 : -1;
+                }
+                return a[col].toLowerCase() < b[col].toLowerCase() ? 1 : -1;
+            });
+            setBooks(sortedBooks)
+        }
 
-        const handleBookNameInputChange = (text) => {
-            setBookName(text);
-        };
-
-        const handleFilterClick = () => {
-            // filter();
-        };
+        const handleReset = () => {
+            setBooks(booksDefault);
+        }
 
         const formatDate = (date) => {
-            return moment(date).format("MMM. DD, YYYY")
+            return moment(date).format("MM/DD/YY")
         }
 
         return (
@@ -56,10 +62,10 @@ const BookListContainer = () => {
                 loading={loading}
                 errorMessage={errorMessage}
                 books={books}
-                bookName={bookName}
                 formatDate={(date) => formatDate(date)}
-                onBookNameInputChange={handleBookNameInputChange}
-                onFilterClick={handleFilterClick}
+                onSortAsc={(col) => handleSortAsc(col)}
+                onSortDesc={(col) => handleSortDesc(col)}
+                onResetClick={handleReset}
             />
         );
     }
