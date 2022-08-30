@@ -1,0 +1,39 @@
+{
+  "files": {
+    "main.css": "/book-extractor/static/css/main.450a43bf.css",
+    "main.js": "/book-extractor/static/js/main.9baf4e54.js",
+    "static/js/787.e6f1245c.chunk.js": "/book-extractor/static/js/787.e6f1245c.chunk.js",
+    "static/media/OpenSans-Italic.svg": "/book-extractor/static/media/OpenSans-Italic.0c8d931b6e12464d4773.svg",
+    "static/media/OpenSans-BoldItalic.svg": "/book-extractor/static/media/OpenSans-BoldItalic.aad2b0f779dd33af6d3c.svg",
+    "static/media/OpenSans.svg": "/book-extractor/static/media/OpenSans.9decbda5cff744bbaafd.svg",
+    "static/media/OpenSans-Bold.svg": "/book-extractor/static/media/OpenSans-Bold.5f79f76bd3060a636cbc.svg",
+    "static/media/OpenSans-Bold.eot": "/book-extractor/static/media/OpenSans-Bold.9d214ad0b67273f84b79.eot",
+    "static/media/OpenSans-Bold.ttf": "/book-extractor/static/media/OpenSans-Bold.27d8bbf339923b5afd5f.ttf",
+    "static/media/OpenSans.eot": "/book-extractor/static/media/OpenSans.4c895b739f7547ddd826.eot",
+    "static/media/OpenSans.ttf": "/book-extractor/static/media/OpenSans.fdafb78b4b7ff74a64c4.ttf",
+    "static/media/Merriweather-Italic.ttf": "/book-extractor/static/media/Merriweather-Italic.89540c663a1e4bc250a1.ttf",
+    "static/media/Merriweather-Regular.ttf": "/book-extractor/static/media/Merriweather-Regular.c9cd4ca8e0ca554beea2.ttf",
+    "static/media/Merriweather-Bold.ttf": "/book-extractor/static/media/Merriweather-Bold.51560b14349c1c497a08.ttf",
+    "static/media/Merriweather-BoldItalic.ttf": "/book-extractor/static/media/Merriweather-BoldItalic.09c0eef481c8af3f1d54.ttf",
+    "static/media/OpenSans-BoldItalic.eot": "/book-extractor/static/media/OpenSans-BoldItalic.91aca3f8727570b2d9e0.eot",
+    "static/media/OpenSans-BoldItalic.ttf": "/book-extractor/static/media/OpenSans-BoldItalic.89b346cf34117938fc6e.ttf",
+    "static/media/OpenSans-Italic.eot": "/book-extractor/static/media/OpenSans-Italic.461420d6373e3d71cd34.eot",
+    "static/media/OpenSans-Italic.ttf": "/book-extractor/static/media/OpenSans-Italic.ac8c183ba7cf52c52b8e.ttf",
+    "static/media/OpenSans-Bold.woff": "/book-extractor/static/media/OpenSans-Bold.4b65bd663db527bef088.woff",
+    "static/media/OpenSans.woff": "/book-extractor/static/media/OpenSans.aafbd3390e73533435b5.woff",
+    "static/media/OpenSans-Italic.woff": "/book-extractor/static/media/OpenSans-Italic.4a0d43a482a7761da1b6.woff",
+    "static/media/OpenSans-BoldItalic.woff": "/book-extractor/static/media/OpenSans-BoldItalic.c8121f71bd6e6cfa2d65.woff",
+    "static/media/OpenSans-Bold.woff2": "/book-extractor/static/media/OpenSans-Bold.36da3683193c31e5fe64.woff2",
+    "static/media/OpenSans.woff2": "/book-extractor/static/media/OpenSans.df7ebff93bcebc0756a1.woff2",
+    "static/media/OpenSans-Italic.woff2": "/book-extractor/static/media/OpenSans-Italic.14a4fbbd515e7f5cd8f3.woff2",
+    "static/media/OpenSans-BoldItalic.woff2": "/book-extractor/static/media/OpenSans-BoldItalic.f7074a2c0a2010c1d67d.woff2",
+    "index.html": "/book-extractor/index.html",
+    "main.450a43bf.css.map": "/book-extractor/static/css/main.450a43bf.css.map",
+    "main.9baf4e54.js.map": "/book-extractor/static/js/main.9baf4e54.js.map",
+    "787.e6f1245c.chunk.js.map": "/book-extractor/static/js/787.e6f1245c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.450a43bf.css",
+    "static/js/main.9baf4e54.js"
+  ]
+}
